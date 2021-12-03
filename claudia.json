@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "pizzagateway-executor",
+    "name": "pizzagateway",
+    "region": "us-west-1"
+  },
+  "api": {
+    "id": "89ggic0zqd",
+    "module": "api"
+  }
+}

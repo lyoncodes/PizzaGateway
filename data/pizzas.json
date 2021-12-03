@@ -1,0 +1,22 @@
+[
+{
+"id": 1,
+"name": "Pepperoni",
+"ingredients":["tomato sauce", "mozzarella", "pepperoni", "herbs"]
+},
+{
+"id": 2,
+"name": "Quattro Formaggi",
+"ingredients":["tomato sauce", "mozzarella", "parmesan cheese", "blue cheese", "goat cheese"]
+},
+{
+"id": 3,
+"name": "Potate Con Pesto",
+"ingredients":["roasted potatoes", "fontina", "garlic", "caramelized onions", "thyme", "white truffleoil"]
+},
+{
+"id": 4,
+"name": "Margherita",
+"ingredients":["tomato sauce", "mozzarella", "basil"]
+}
+]

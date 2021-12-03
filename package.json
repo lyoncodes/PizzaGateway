@@ -1,0 +1,29 @@
+{
+  "name": "pizzagateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "new": "claudia create --region us-west-1 --api-module api --profile claudia",
+    "go": "claudia update --profile claudia",
+    "scan": "curl -i -H \"Content-Type: application/json\" https://89ggic0zqd.execute-api.us-west-1.amazonaws.com/latest/orders",
+    "post": "curl -i -H \"Content-Type: application/json\" -X POST -d '{\"pizza\":1,\"address\":\"221b Baker Street\"}' https://89ggic0zqd.execute-api.us-west-1.amazonaws.com/latest/orders",
+    "save-log": "aws logs filter-log-events --filter='Save an order' --log-group-name=/aws/lambda/pizzagateway --query='events[0].message' --region=us-west-1 --output=text",
+    "delivery-log": "aws logs filter-log-events --filter='Update delivery' --log-group-name=/aws/lambda/pizzagateway --region=us-west-1 --output=text",
+    "log": "aws logs filter-log-events --filter='creating' --log-group-name=/aws/lambda/pizzagateway --query='events[0].message' --region=us-west-1 --output=text",
+    "new-user-pool": "aws cognito-idp create-user-pool --pool-name Pizzeria --policies \"PasswordPolicy={MinimumLength=8,RequireUppercase=false, RequireLowercase=false,RequireNumbers=false,RequireSymbols=false}\" --username-attributes email --query UserPool.Id --output text",
+    "new-user-client": "aws cognito-idp create-user-pool-client --user-pool-id us-west-1_zsDPrY79C --client-name PizzeriaClient --no-generate-secret --query UserPoolClient.ClientId --output text",
+    "new-id-pool": "aws cognito-identity create-identity-pool --identity-pool-name Pizzeria --allow-unauthenticated-identities"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1021.0",
+    "claudia": "^5.14.0",
+    "claudia-api-builder": "^4.1.2",
+    "minimal-request-promise": "^1.5.0",
+    "uuid": "^8.3.2"
+  }
+}
